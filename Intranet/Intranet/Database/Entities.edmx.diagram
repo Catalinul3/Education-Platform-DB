@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d91636b086be4be2bb8518c27e8030ef" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="EntitiesModel.Admin" Width="1.5" PointX="5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitiesModel.Profesor" Width="1.5" PointX="2.875" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitiesModel.Specializare" Width="1.5" PointX="4.375" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitiesModel.Clasa" Width="1.5" PointX="10.75" PointY="0.75" />
+        <AssociationConnector Association="EntitiesModel.FK_Specializare_Clasa" />
+        <EntityTypeShape EntityType="EntitiesModel.Materie" Width="1.5" PointX="4.75" PointY="5.875" />
+        <EntityTypeShape EntityType="EntitiesModel.MateriiSpecializari" Width="1.5" PointX="7.5" PointY="2" />
+        <AssociationConnector Association="EntitiesModel.FK_Materii" />
+        <AssociationConnector Association="EntitiesModel.FK_Specializari" />
+        <EntityTypeShape EntityType="EntitiesModel.Diriginte" Width="1.5" PointX="14.25" PointY="1.625" />
+        <AssociationConnector Association="EntitiesModel.FK_MateriePredata" />
+        <AssociationConnector Association="EntitiesModel.FK_Clasa" />
+        <AssociationConnector Association="EntitiesModel.FK_Clasa_Diriginte" />
+        <EntityTypeShape EntityType="EntitiesModel.MateriiProfesori" Width="1.5" PointX="8.25" PointY="9.25" />
+        <AssociationConnector Association="EntitiesModel.FK_Materii_P" />
+        <AssociationConnector Association="EntitiesModel.FK_Profesor_m" />
+        <EntityTypeShape EntityType="EntitiesModel.Student" Width="1.5" PointX="11.5" PointY="5.125" />
+        <AssociationConnector Association="EntitiesModel.FK_CLASA_ELEV" />
+        <EntityTypeShape EntityType="EntitiesModel.Absente" Width="1.5" PointX="15" PointY="5.625" />
+        <EntityTypeShape EntityType="EntitiesModel.NOTA" Width="1.5" PointX="8" PointY="6.125" />
+        <AssociationConnector Association="EntitiesModel.FK_Absente_Elev" />
+        <AssociationConnector Association="EntitiesModel.FK_NOTA_ELEV" />
+        <AssociationConnector Association="EntitiesModel.FK_MATERIA_NOTA" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

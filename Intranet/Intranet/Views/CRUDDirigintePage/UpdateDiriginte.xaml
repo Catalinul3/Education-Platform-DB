@@ -1,0 +1,34 @@
+﻿<Window x:Class="Intranet.Views.CRUDDirigintePage.UpdateDiriginte"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Intranet.ViewModels.CRUDDiriginte"
+        mc:Ignorable="d"
+        Title="UpdateDiriginte" Height="450" Width="800">
+    <Window.DataContext>
+        <local:UpdateDiriginteView></local:UpdateDiriginteView>
+    </Window.DataContext>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="Introduceti numele dirigintelui vechi" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <ComboBox Grid.Row="0" Width="300" Height="40" VerticalAlignment="Bottom" ItemsSource="{Binding vechiul}" SelectedItem="{Binding numeDiriginteVechi}" FontSize="20" FontFamily="Garamond"/>
+        <Label Content="Introduceti numele noului diriginte" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Content="Introduceti prenumele vechiului diriginte" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="Introduceti prenumele noului diriginte" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Width="300" Height="40" VerticalAlignment="Bottom" ItemsSource="{Binding NoulP}" SelectedItem="{Binding prenumeDiriginteNou}" FontFamily="Garamond" FontSize="20"/>
+        <ComboBox Grid.Row="1" Grid.Column="0" Width="300" Height="40" VerticalAlignment="Bottom" ItemsSource="{Binding VechiP}" SelectedItem="{Binding prenumeDiriginteVechi}"  FontFamily="Garamond" FontSize="20"/>
+        <ComboBox Grid.Row="0" Grid.Column="1" Width="300" Height="40" VerticalAlignment="Bottom" ItemsSource="{Binding noul}" SelectedItem="{Binding numeDiriginteNou}"  FontSize="20" FontFamily="Garamond"/>
+        <Button Grid.Row="2" Width="300" Height="40" Command="{Binding update}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Actualizeaza materia" FontSize="20" FontFamily="Garamond"/>
+        <Button Grid.Row="2" Grid.Column="1" Width="300" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Anuleaza" FontSize="20" FontFamily="Garamond"/>
+    </Grid>
+</Window>

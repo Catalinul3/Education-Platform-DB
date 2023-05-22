@@ -1,0 +1,20 @@
+﻿Intranet
+
+
+winexe
+C#
+.cs
+D:\visual stuido\Intranet\Intranet\obj\Debug\
+Intranet
+none
+false
+DEBUG;TRACE
+D:\visual stuido\Intranet\Intranet\App.xaml
+39-1890496624
+2-449692205
+139-919363650
+21-636873652
+MainWindow.xaml;Views\CRUDClasaPage\DeleteClass.xaml;Views\CRUDClasaPage\ReadClass.xaml;Views\CRUDClasaPage\UpdateClass.xaml;Views\CRUDDirigintePage\CreateDiriginte.xaml;Views\CRUDDirigintePage\DeleteDiriginte.xaml;Views\CRUDDirigintePage\ReadDiriginte.xaml;Views\CRUDDirigintePage\UpdateDiriginte.xaml;Views\CRUDDirigintePage\UpdateDiriginteParolaSiMaterie.xaml;Views\CRUDMateriePage\CreateSubject.xaml;Views\CRUDMateriePage\DeleteSubject.xaml;Views\CRUDMateriePage\ReadSubject.xaml;Views\CRUDMateriePage\UpdateSubject.xaml;Views\CRUDProfesorPage\CreateProfessor.xaml;Views\CRUDProfesorPage\DeleteProfesor.xaml;Views\CRUDProfesorPage\ReadProfesor.xaml;Views\CRUDProfesorPage\UpdateProfesor.xaml;Views\CRUDStudentPage\CreateStudent.xaml;Views\CRUDStudentPage\DeleteStudent.xaml;Views\CRUDStudentPage\ReadStudent.xaml;Views\CRUDStudentPage\UpdateStudent.xaml;Views\CRUD\CreateClasa.xaml;Views\CRUD\CreateSpecialization.xaml;Views\CRUD\DeleteSpecialization.xaml;Views\CRUD\UpdateSpecialization.xaml;Views\CRUD\ViewSpecialization.xaml;Views\LogInAdmin.xaml;Views\LogInDiriginte.xaml;Views\LogInProfesor.xaml;Views\LogInStudent.xaml;Views\ProfesorAction\AddAbsences.xaml;Views\ProfesorAction\AddGrade.xaml;Views\ProfesorAction\ClearAbsences.xaml;Views\ProfesorAction\ClearGrade.xaml;Views\ProfesorAction\ViewCatalog.xaml;Views\UsersPage\AdminPage.xaml;Views\UsersPage\DirigintePage.xaml;Views\UsersPage\ProfesorPage.xaml;Views\UsersPage\StudentPage.xaml;
+
+True
+

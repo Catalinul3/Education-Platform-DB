@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IntranetModelStoreContainer" CdmEntityContainer="IntranetEntity">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="IntranetModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clasas">
+      <EntityTypeMapping TypeName="IntranetModel.Clasa">
+        <MappingFragment StoreEntitySet="Clasa">
+          <ScalarProperty Name="NumeSpecializare" ColumnName="NumeSpecializare" />
+          <ScalarProperty Name="ClasaID" ColumnName="ClasaID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="SpecializareClasaID" ColumnName="SpecializareClasaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dirigintes">
+      <EntityTypeMapping TypeName="IntranetModel.Diriginte">
+        <MappingFragment StoreEntitySet="Diriginte">
+          <ScalarProperty Name="DiriginteID" ColumnName="DiriginteID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materies">
+      <EntityTypeMapping TypeName="IntranetModel.Materie">
+        <MappingFragment StoreEntitySet="Materie">
+          <ScalarProperty Name="MaterieID" ColumnName="MaterieID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesors">
+      <EntityTypeMapping TypeName="IntranetModel.Profesor">
+        <MappingFragment StoreEntitySet="Profesor">
+          <ScalarProperty Name="ProfesorID" ColumnName="ProfesorID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specializares">
+      <EntityTypeMapping TypeName="IntranetModel.Specializare">
+        <MappingFragment StoreEntitySet="Specializare">
+          <ScalarProperty Name="SpecializareID" ColumnName="SpecializareID" />
+          <ScalarProperty Name="NumeSpecializare" ColumnName="NumeSpecializare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="IntranetModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AdminF" FunctionName="IntranetModel.Store.AdminF" />
+    <FunctionImportMapping FunctionImportName="AdaugaClasa" FunctionName="IntranetModel.Store.AdaugaClasa" />
+  </EntityContainerMapping>
+</Mapping>

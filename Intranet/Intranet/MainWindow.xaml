@@ -1,0 +1,54 @@
+﻿<Window x:Class="Intranet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Intranet.MainWindowView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:ButtonAction></local:ButtonAction>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="7*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="2">
+                <TextBlock Text="Bun venit pe Intranet" FontSize="30" TextAlignment="Center" FontFamily="Garamond" FontWeight="Black"></TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="7*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.ColumnSpan="4" Text="Va rugăm, selectați-vă rolul" TextAlignment="Center" FontFamily="Garamond" FontWeight="Bold" FontSize="20"></TextBlock>
+                <Image Grid.Column="0" Grid.Row="1" Source="Resources\diriginte.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                <Image Grid.Column="1" Grid.Row="1" Source="Resources\admin.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                <Image Grid.Column="2" Grid.Row="1" Source="Resources\profesor.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                <Image Grid.Column="3" Grid.Row="1" Source="Resources\student.png" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                <Button Grid.Row="1" Content="Diriginte" HorizontalAlignment="Center" Command="{Binding diriginteSelected}" VerticalAlignment="Bottom" FontSize="20" FontFamily="Garamond" FontWeight="Bold"/>
+                <Button Grid.Row="1" Grid.Column="1" Content="Admin" Command="{Binding adminSelected}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" FontFamily="Garamond" FontWeight="Bold"/>
+                <Button Grid.Row="1" Grid.Column="2" Content="Profesor" Command="{Binding profesorSelected}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" FontFamily="Garamond" FontWeight="Bold"/>
+                <Button Grid.Row="1" Grid.Column="3" Content="Student" Command="{Binding studentSelected}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" FontFamily="Garamond" FontWeight="Bold"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

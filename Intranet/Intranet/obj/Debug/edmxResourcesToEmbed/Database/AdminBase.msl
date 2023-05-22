@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Tema3ModelStoreContainer" CdmEntityContainer="AdminEntitiesB">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="Tema3Model.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="FindAdmin" FunctionName="Tema3Model.Store.FindAdmin" />
+  </EntityContainerMapping>
+</Mapping>

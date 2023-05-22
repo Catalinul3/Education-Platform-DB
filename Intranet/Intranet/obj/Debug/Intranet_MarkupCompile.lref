@@ -1,0 +1,42 @@
+﻿
+
+FD:\visual stuido\Intranet\Intranet\MainWindow.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDClasaPage\DeleteClass.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDClasaPage\ReadClass.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDClasaPage\UpdateClass.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDDirigintePage\CreateDiriginte.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDMateriePage\CreateSubject.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDMateriePage\DeleteSubject.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDMateriePage\ReadSubject.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDMateriePage\UpdateSubject.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDProfesorPage\CreateProfessor.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDDirigintePage\ReadDiriginte.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDProfesorPage\ReadProfesor.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDStudentPage\CreateStudent.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUD\CreateClasa.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUD\CreateSpecialization.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUD\DeleteSpecialization.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUD\UpdateSpecialization.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUD\ViewSpecialization.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\LogInAdmin.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\LogInDiriginte.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\LogInProfesor.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\LogInStudent.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\UsersPage\AdminPage.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\UsersPage\DirigintePage.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\UsersPage\ProfesorPage.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\UsersPage\StudentPage.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDStudentPage\ReadStudent.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDDirigintePage\UpdateDiriginte.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDDirigintePage\UpdateDiriginteParolaSiMaterie.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDProfesorPage\UpdateProfesor.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDStudentPage\UpdateStudent.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDDirigintePage\DeleteDiriginte.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDProfesorPage\DeleteProfesor.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\CRUDStudentPage\DeleteStudent.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\ProfesorAction\AddAbsences.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\ProfesorAction\AddGrade.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\ProfesorAction\ClearAbsences.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\ProfesorAction\ClearGrade.xaml;;
+FD:\visual stuido\Intranet\Intranet\Views\ProfesorAction\ViewCatalog.xaml;;
+

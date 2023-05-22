@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EntitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Profesor">
+    <Key>
+      <PropertyRef Name="ProfesorID" />
+    </Key>
+    <Property Name="ProfesorID" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MateriePredata" Type="Int32" />
+    <NavigationProperty Name="MateriiProfesoris" Relationship="EntitiesModel.FK_Profesor_m" FromRole="Profesor" ToRole="MateriiProfesori" />
+  </EntityType>
+  <EntityType Name="Specializare">
+    <Key>
+      <PropertyRef Name="SpecializareID" />
+    </Key>
+    <Property Name="SpecializareID" Type="Int32" Nullable="false" />
+    <Property Name="NumeSpecializare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clasas" Relationship="EntitiesModel.FK_Specializare_Clasa" FromRole="Specializare" ToRole="Clasa" />
+    <NavigationProperty Name="MateriiSpecializaris" Relationship="EntitiesModel.FK_Specializari" FromRole="Specializare" ToRole="MateriiSpecializari" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Profesors" EntityType="Self.Profesor" />
+    <EntitySet Name="Specializares" EntityType="Self.Specializare" />
+    <FunctionImport Name="AdaugaClasa">
+      <Parameter Name="SpecializareNume" Mode="In" Type="String" />
+      <Parameter Name="DenumireClasa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AdminF" ReturnType="Collection(Int32)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="StergeClasa">
+      <Parameter Name="nume_clasa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ActualizareClasa">
+      <Parameter Name="ClasaID" Mode="In" Type="Int32" />
+      <Parameter Name="SpecializareNoua" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificaSpecializareClasa">
+      <Parameter Name="NumeClasa" Mode="In" Type="String" />
+      <Parameter Name="NumeSpecializareNoua" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Clasas" EntityType="EntitiesModel.Clasa" />
+    <AssociationSet Name="FK_Specializare_Clasa" Association="EntitiesModel.FK_Specializare_Clasa">
+      <End Role="Specializare" EntitySet="Specializares" />
+      <End Role="Clasa" EntitySet="Clasas" />
+    </AssociationSet>
+    <EntitySet Name="Materies" EntityType="EntitiesModel.Materie" />
+    <EntitySet Name="MateriiSpecializaris" EntityType="EntitiesModel.MateriiSpecializari" />
+    <AssociationSet Name="FK_Materii" Association="EntitiesModel.FK_Materii">
+      <End Role="Materie" EntitySet="Materies" />
+      <End Role="MateriiSpecializari" EntitySet="MateriiSpecializaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Specializari" Association="EntitiesModel.FK_Specializari">
+      <End Role="Specializare" EntitySet="Specializares" />
+      <End Role="MateriiSpecializari" EntitySet="MateriiSpecializaris" />
+    </AssociationSet>
+    <EntitySet Name="Dirigintes" EntityType="EntitiesModel.Diriginte" />
+    <AssociationSet Name="FK_MateriePredata" Association="EntitiesModel.FK_MateriePredata">
+      <End Role="MateriiSpecializari" EntitySet="MateriiSpecializaris" />
+      <End Role="Diriginte" EntitySet="Dirigintes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clasa" Association="EntitiesModel.FK_Clasa">
+      <End Role="Clasa" EntitySet="Clasas" />
+      <End Role="Diriginte" EntitySet="Dirigintes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clasa_Diriginte" Association="EntitiesModel.FK_Clasa_Diriginte">
+      <End Role="Diriginte" EntitySet="Dirigintes" />
+      <End Role="Clasa" EntitySet="Clasas" />
+    </AssociationSet>
+    <FunctionImport Name="DiriginteF" ReturnType="Collection(Int32)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AdaugaDiriginte">
+      <Parameter Name="Nume" Mode="In" Type="String" />
+      <Parameter Name="Prenume" Mode="In" Type="String" />
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Parola" Mode="In" Type="String" />
+      <Parameter Name="Clasa" Mode="In" Type="Int32" />
+      <Parameter Name="MaterieSpecializare" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="MateriiProfesoris" EntityType="EntitiesModel.MateriiProfesori" />
+    <AssociationSet Name="FK_Materii_P" Association="EntitiesModel.FK_Materii_P">
+      <End Role="Materie" EntitySet="Materies" />
+      <End Role="MateriiProfesori" EntitySet="MateriiProfesoris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profesor_m" Association="EntitiesModel.FK_Profesor_m">
+      <End Role="Profesor" EntitySet="Profesors" />
+      <End Role="MateriiProfesori" EntitySet="MateriiProfesoris" />
+    </AssociationSet>
+    <FunctionImport Name="ProfesorF" ReturnType="Collection(Int32)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="StudentF" ReturnType="Collection(Int32)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Students" EntityType="EntitiesModel.Student" />
+    <AssociationSet Name="FK_CLASA_ELEV" Association="EntitiesModel.FK_CLASA_ELEV">
+      <End Role="Clasa" EntitySet="Clasas" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <EntitySet Name="Absentes" EntityType="EntitiesModel.Absente" />
+    <EntitySet Name="NOTAs" EntityType="EntitiesModel.NOTA" />
+    <AssociationSet Name="FK_Absente_Elev" Association="EntitiesModel.FK_Absente_Elev">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Absente" EntitySet="Absentes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTA_ELEV" Association="EntitiesModel.FK_NOTA_ELEV">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="NOTA" EntitySet="NOTAs" />
+    </AssociationSet>
+    <FunctionImport Name="ActualizareDiriginte">
+      <Parameter Name="NumeDiriginteSursa" Mode="In" Type="String" />
+      <Parameter Name="PrenumeDiriginteSursa" Mode="In" Type="String" />
+      <Parameter Name="NumeDiriginteDestinatar" Mode="In" Type="String" />
+      <Parameter Name="PrenumeDiriginteDestinatar" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ActualizareDiriginteParolaSiMaterie">
+      <Parameter Name="NumeDiriginte" Mode="In" Type="String" />
+      <Parameter Name="PrenumeDiriginte" Mode="In" Type="String" />
+      <Parameter Name="Parola" Mode="In" Type="String" />
+      <Parameter Name="MateriePredata" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="StergeDiriginte" ReturnType="Collection(String)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+    </FunctionImport>
+    <AssociationSet Name="FK_MATERIA_NOTA" Association="EntitiesModel.FK_MATERIA_NOTA">
+      <End Role="Materie" EntitySet="Materies" />
+      <End Role="NOTA" EntitySet="NOTAs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Clasa">
+    <Key>
+      <PropertyRef Name="ClasaID" />
+    </Key>
+    <Property Name="ClasaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SpecializareID" Type="Int32" />
+    <NavigationProperty Name="Specializare" Relationship="EntitiesModel.FK_Specializare_Clasa" FromRole="Clasa" ToRole="Specializare" />
+    <Property Name="DiriginteID" Type="Int32" />
+    <NavigationProperty Name="Dirigintes" Relationship="EntitiesModel.FK_Clasa" FromRole="Clasa" ToRole="Diriginte" />
+    <NavigationProperty Name="Diriginte" Relationship="EntitiesModel.FK_Clasa_Diriginte" FromRole="Clasa" ToRole="Diriginte" />
+    <NavigationProperty Name="Students" Relationship="EntitiesModel.FK_CLASA_ELEV" FromRole="Clasa" ToRole="Student" />
+  </EntityType>
+  <Association Name="FK_Specializare_Clasa">
+    <End Type="EntitiesModel.Specializare" Role="Specializare" Multiplicity="0..1" />
+    <End Type="EntitiesModel.Clasa" Role="Clasa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specializare">
+        <PropertyRef Name="SpecializareID" />
+      </Principal>
+      <Dependent Role="Clasa">
+        <PropertyRef Name="SpecializareID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Materie">
+    <Key>
+      <PropertyRef Name="MaterieID" />
+    </Key>
+    <Property Name="MaterieID" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Teza" Type="Boolean" />
+    <NavigationProperty Name="MateriiSpecializaris" Relationship="EntitiesModel.FK_Materii" FromRole="Materie" ToRole="MateriiSpecializari" />
+    <NavigationProperty Name="MateriiProfesoris" Relationship="EntitiesModel.FK_Materii_P" FromRole="Materie" ToRole="MateriiProfesori" />
+    <NavigationProperty Name="NOTAs" Relationship="EntitiesModel.FK_MATERIA_NOTA" FromRole="Materie" ToRole="NOTA" />
+  </EntityType>
+  <EntityType Name="MateriiSpecializari">
+    <Key>
+      <PropertyRef Name="MaterieSpecializare" />
+    </Key>
+    <Property Name="MaterieSpecializare" Type="Int32" Nullable="false" />
+    <Property Name="MaterieID" Type="Int32" />
+    <Property Name="SpecializareID" Type="Int32" />
+    <NavigationProperty Name="Materie" Relationship="EntitiesModel.FK_Materii" FromRole="MateriiSpecializari" ToRole="Materie" />
+    <NavigationProperty Name="Specializare" Relationship="EntitiesModel.FK_Specializari" FromRole="MateriiSpecializari" ToRole="Specializare" />
+    <NavigationProperty Name="Dirigintes" Relationship="EntitiesModel.FK_MateriePredata" FromRole="MateriiSpecializari" ToRole="Diriginte" />
+  </EntityType>
+  <Association Name="FK_Materii">
+    <End Type="EntitiesModel.Materie" Role="Materie" Multiplicity="0..1" />
+    <End Type="EntitiesModel.MateriiSpecializari" Role="MateriiSpecializari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materie">
+        <PropertyRef Name="MaterieID" />
+      </Principal>
+      <Dependent Role="MateriiSpecializari">
+        <PropertyRef Name="MaterieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Specializari">
+    <End Type="EntitiesModel.Specializare" Role="Specializare" Multiplicity="0..1" />
+    <End Type="EntitiesModel.MateriiSpecializari" Role="MateriiSpecializari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specializare">
+        <PropertyRef Name="SpecializareID" />
+      </Principal>
+      <Dependent Role="MateriiSpecializari">
+        <PropertyRef Name="SpecializareID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Diriginte">
+    <Key>
+      <PropertyRef Name="DiriginteID" />
+    </Key>
+    <Property Name="DiriginteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRENUME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MateriePredata" Type="Int32" />
+    <Property Name="Clasa" Type="Int32" />
+    <NavigationProperty Name="MateriiSpecializari" Relationship="EntitiesModel.FK_MateriePredata" FromRole="Diriginte" ToRole="MateriiSpecializari" />
+    <NavigationProperty Name="Clasa1" Relationship="EntitiesModel.FK_Clasa" FromRole="Diriginte" ToRole="Clasa" />
+    <NavigationProperty Name="Clasas" Relationship="EntitiesModel.FK_Clasa_Diriginte" FromRole="Diriginte" ToRole="Clasa" />
+  </EntityType>
+  <Association Name="FK_MateriePredata">
+    <End Type="EntitiesModel.MateriiSpecializari" Role="MateriiSpecializari" Multiplicity="0..1" />
+    <End Type="EntitiesModel.Diriginte" Role="Diriginte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MateriiSpecializari">
+        <PropertyRef Name="MaterieSpecializare" />
+      </Principal>
+      <Dependent Role="Diriginte">
+        <PropertyRef Name="MateriePredata" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clasa">
+    <End Type="EntitiesModel.Clasa" Role="Clasa" Multiplicity="0..1" />
+    <End Type="EntitiesModel.Diriginte" Role="Diriginte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clasa">
+        <PropertyRef Name="ClasaID" />
+      </Principal>
+      <Dependent Role="Diriginte">
+        <PropertyRef Name="Clasa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clasa_Diriginte">
+    <End Type="EntitiesModel.Diriginte" Role="Diriginte" Multiplicity="0..1" />
+    <End Type="EntitiesModel.Clasa" Role="Clasa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diriginte">
+        <PropertyRef Name="DiriginteID" />
+      </Principal>
+      <Dependent Role="Clasa">
+        <PropertyRef Name="DiriginteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MateriiProfesori">
+    <Key>
+      <PropertyRef Name="MateriiProfesoriID" />
+    </Key>
+    <Property Name="MateriiProfesoriID" Type="Int32" Nullable="false" />
+    <Property Name="MaterieID" Type="Int32" />
+    <Property Name="ProfesorID" Type="Int32" />
+    <NavigationProperty Name="Materie" Relationship="EntitiesModel.FK_Materii_P" FromRole="MateriiProfesori" ToRole="Materie" />
+    <NavigationProperty Name="Profesor" Relationship="EntitiesModel.FK_Profesor_m" FromRole="MateriiProfesori" ToRole="Profesor" />
+  </EntityType>
+  <Association Name="FK_Materii_P">
+    <End Type="EntitiesModel.Materie" Role="Materie" Multiplicity="0..1" />
+    <End Type="EntitiesModel.MateriiProfesori" Role="MateriiProfesori" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materie">
+        <PropertyRef Name="MaterieID" />
+      </Principal>
+      <Dependent Role="MateriiProfesori">
+        <PropertyRef Name="MaterieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profesor_m">
+    <End Type="EntitiesModel.Profesor" Role="Profesor" Multiplicity="0..1" />
+    <End Type="EntitiesModel.MateriiProfesori" Role="MateriiProfesori" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesor">
+        <PropertyRef Name="ProfesorID" />
+      </Principal>
+      <Dependent Role="MateriiProfesori">
+        <PropertyRef Name="ProfesorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClasaElevului" Type="Int32" />
+    <NavigationProperty Name="Clasa" Relationship="EntitiesModel.FK_CLASA_ELEV" FromRole="Student" ToRole="Clasa" />
+    <NavigationProperty Name="Absentes" Relationship="EntitiesModel.FK_Absente_Elev" FromRole="Student" ToRole="Absente" />
+    <NavigationProperty Name="NOTAs" Relationship="EntitiesModel.FK_NOTA_ELEV" FromRole="Student" ToRole="NOTA" />
+  </EntityType>
+  <Association Name="FK_CLASA_ELEV">
+    <End Type="EntitiesModel.Clasa" Role="Clasa" Multiplicity="0..1" />
+    <End Type="EntitiesModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clasa">
+        <PropertyRef Name="ClasaID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="ClasaElevului" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Absente">
+    <Key>
+      <PropertyRef Name="AbsenteID" />
+    </Key>
+    <Property Name="AbsenteID" Type="Int32" Nullable="false" />
+    <Property Name="Semestru" Type="Int32" />
+    <Property Name="Elev" Type="Int32" />
+    <Property Name="Data" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Student" Relationship="EntitiesModel.FK_Absente_Elev" FromRole="Absente" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="NOTA">
+    <Key>
+      <PropertyRef Name="NOTAID" />
+    </Key>
+    <Property Name="NOTAID" Type="Int32" Nullable="false" />
+    <Property Name="Semestru" Type="Int32" />
+    <Property Name="Elev" Type="Int32" />
+    <Property Name="Data" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Student" Relationship="EntitiesModel.FK_NOTA_ELEV" FromRole="NOTA" ToRole="Student" />
+    <Property Name="Grad" Type="Int32" />
+    <Property Name="Materia" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Materie" Relationship="EntitiesModel.FK_MATERIA_NOTA" FromRole="NOTA" ToRole="Materie" />
+  </EntityType>
+  <Association Name="FK_Absente_Elev">
+    <End Type="EntitiesModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="EntitiesModel.Absente" Role="Absente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Absente">
+        <PropertyRef Name="Elev" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTA_ELEV">
+    <End Type="EntitiesModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="EntitiesModel.NOTA" Role="NOTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="NOTA">
+        <PropertyRef Name="Elev" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MATERIA_NOTA">
+    <End Type="EntitiesModel.Materie" Role="Materie" Multiplicity="1" />
+    <End Type="EntitiesModel.NOTA" Role="NOTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materie">
+        <PropertyRef Name="MaterieID" />
+      </Principal>
+      <Dependent Role="NOTA">
+        <PropertyRef Name="Materia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

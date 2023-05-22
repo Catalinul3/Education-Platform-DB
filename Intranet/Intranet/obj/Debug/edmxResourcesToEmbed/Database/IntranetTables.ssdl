@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IntranetModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="int" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Clasa">
+    <Key>
+      <PropertyRef Name="ClasaID" />
+    </Key>
+    <Property Name="ClasaID" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="50" />
+    <Property Name="SpecializareClasaID" Type="int" />
+  </EntityType>
+  <EntityType Name="Diriginte">
+    <Key>
+      <PropertyRef Name="DiriginteID" />
+    </Key>
+    <Property Name="DiriginteID" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="50" />
+    <Property Name="Prenume" Type="nvarchar" MaxLength="50" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Materie">
+    <Key>
+      <PropertyRef Name="MaterieID" />
+    </Key>
+    <Property Name="MaterieID" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Profesor">
+    <Key>
+      <PropertyRef Name="ProfesorID" />
+    </Key>
+    <Property Name="ProfesorID" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="50" />
+    <Property Name="Prenume" Type="nvarchar" MaxLength="50" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Specializare">
+    <Key>
+      <PropertyRef Name="SpecializareID" />
+    </Key>
+    <Property Name="SpecializareID" Type="int" Nullable="false" />
+    <Property Name="NumeSpecializare" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="50" />
+    <Property Name="Prenume" Type="nvarchar" MaxLength="50" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Clasa_Specializare">
+    <End Role="Specializare" Type="Self.Specializare" Multiplicity="0..1" />
+    <End Role="Clasa" Type="Self.Clasa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specializare">
+        <PropertyRef Name="SpecializareID" />
+      </Principal>
+      <Dependent Role="Clasa">
+        <PropertyRef Name="SpecializareClasaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AdminF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="IntranetModelsStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clasa" EntityType="Self.Clasa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diriginte" EntityType="Self.Diriginte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materie" EntityType="Self.Materie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specializare" EntityType="Self.Specializare" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Clasa_Specializare" Association="Self.FK_Clasa_Specializare">
+      <End Role="Specializare" EntitySet="Specializare" />
+      <End Role="Clasa" EntitySet="Clasa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

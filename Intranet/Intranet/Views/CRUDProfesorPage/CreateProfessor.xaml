@@ -1,0 +1,36 @@
+﻿<Window x:Class="Intranet.Views.CRUDProfesorPage.CreateProfessor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Intranet.ViewModels.CRUDProfesor"
+        mc:Ignorable="d"
+        Title="CreateProfessor" Height="450" Width="800">
+    <Window.DataContext>
+        <local:CreateProfesorView></local:CreateProfesorView>
+    </Window.DataContext>
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+          
+
+        </Grid.RowDefinitions>
+        <Label Content="Nume" Grid.Row="0" HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding nume}" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="20" Width="100"/>
+        <Label Content="Prenume" HorizontalAlignment="Center" Grid.Row="1"/>
+        <TextBox Text="{Binding prenume}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1" Height="20" Width="100"/>
+        <Label Content="Username" HorizontalAlignment="Center" Grid.Row="2"/>
+        <TextBox Text="{Binding username}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Height="20" Width="100"/>
+        <Label Content="Password" HorizontalAlignment="Center" Grid.Row="3"/>
+        <TextBox Text="{Binding password}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3" Height="20" Width="100"/>
+        <Label Content="Materie" HorizontalAlignment="Center" Grid.Row="4"/>
+        <ComboBox ItemsSource="{Binding subjects}" SelectedItem="{Binding selectedSubject}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="4" Height="20" Width="100"/>
+        <Button Content="Create" Command="{Binding Create}" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="300"/>
+        <Button Content="Cancel" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="50" Width="300"/>
+    </Grid>
+</Window>

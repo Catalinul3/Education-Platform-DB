@@ -1,0 +1,33 @@
+﻿<Window x:Class="Intranet.Views.ProfesorAction.AddGrade"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Intranet.ViewModels.ProfessorActionView"
+        mc:Ignorable="d"
+        Title="AddGrade" Height="450" Width="800">
+    <Window.DataContext>
+        <local:AddGradesView></local:AddGradesView>
+    </Window.DataContext>
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Student Name" VerticalContentAlignment="Top" HorizontalContentAlignment="Center"></Label>
+        <ComboBox Grid.Row="0" Height="40" ItemsSource="{Binding Catalog}" SelectedItem="{Binding Nume}" VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Width="400"></ComboBox>
+        <Label Grid.Row="1" Content="Student first name" VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
+        <ComboBox Grid.Row="1" Height="40" ItemsSource="{Binding Prenume}" SelectedItem="{Binding SelectedPrenume}" Width="400" VerticalAlignment="Bottom"/>
+        <Label Grid.Row="2" Content="Grade" VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
+        <ComboBox Grid.Row="2" Height="40" ItemsSource="{Binding Grades}" SelectedItem="{Binding SelectedGrade}" Width="400" VerticalAlignment="Bottom"/>
+        <Label Grid.Row="3" Content="Course" VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
+        <ComboBox Grid.Row="3" Height="40" ItemsSource="{Binding Materii}" SelectedItem="{Binding selectedMaterii}" Width="400" VerticalAlignment="Bottom"/>
+        <Label Grid.Row="4" Content="Semester" VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
+        <ComboBox Grid.Row="4" Height="40" ItemsSource="{Binding Semestre}" SelectedItem="{Binding SelectedSem}" Width="400" VerticalAlignment="Bottom"/>
+        <Button Grid.Row="5" Content="Add Grade" Command="{Binding Add}" Width="100" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>

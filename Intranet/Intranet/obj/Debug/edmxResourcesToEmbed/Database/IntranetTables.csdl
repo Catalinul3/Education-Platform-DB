@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IntranetModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Clasa">
+    <Key>
+      <PropertyRef Name="ClasaID" />
+    </Key>
+    <Property Name="ClasaID" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SpecializareClasaID" Type="Int32" />
+    <NavigationProperty Name="Specializares" Relationship="IntranetModels.ClasaSpecializare" FromRole="Clasa" ToRole="Specializare" />
+  </EntityType>
+  <EntityType Name="Diriginte">
+    <Key>
+      <PropertyRef Name="DiriginteID" />
+    </Key>
+    <Property Name="DiriginteID" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Materie">
+    <Key>
+      <PropertyRef Name="MaterieID" />
+    </Key>
+    <Property Name="MaterieID" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Profesor">
+    <Key>
+      <PropertyRef Name="ProfesorID" />
+    </Key>
+    <Property Name="ProfesorID" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Specializare">
+    <Key>
+      <PropertyRef Name="SpecializareID" />
+    </Key>
+    <Property Name="SpecializareID" Type="Int32" Nullable="false" />
+    <Property Name="NumeSpecializare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clasa" Relationship="IntranetModels.ClasaSpecializare" FromRole="Specializare" ToRole="Clasa" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="IntranetTables" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Clasas" EntityType="Self.Clasa" />
+    <EntitySet Name="Dirigintes" EntityType="Self.Diriginte" />
+    <EntitySet Name="Materies" EntityType="Self.Materie" />
+    <EntitySet Name="Profesors" EntityType="Self.Profesor" />
+    <EntitySet Name="Specializares" EntityType="Self.Specializare" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <FunctionImport Name="AdminF" ReturnType="Collection(Int32)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <AssociationSet Name="ClasaSpecializare" Association="IntranetModels.ClasaSpecializare">
+      <End Role="Clasa" EntitySet="Clasas" />
+      <End Role="Specializare" EntitySet="Specializares" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="ClasaSpecializare">
+    <End Type="IntranetModels.Clasa" Role="Clasa" Multiplicity="1" />
+    <End Type="IntranetModels.Specializare" Role="Specializare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specializare">
+        <PropertyRef Name="SpecializareID" />
+      </Principal>
+      <Dependent Role="Clasa">
+        <PropertyRef Name="SpecializareClasaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

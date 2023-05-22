@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A7CA21C-3124-4449-9D2D-2AF8ACAE4C4F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Intranet</RootNamespace>
+    <AssemblyName>Intranet</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\AdminLogIn.cs" />
+    <Compile Include="Commands\ConnectAdmin.cs" />
+    <Compile Include="Commands\CreateClassButton.cs" />
+    <Compile Include="Commands\CRUDPeClase\DeleteClassButton.cs" />
+    <Compile Include="Commands\CRUDPeClase\ReadClassButton.cs" />
+    <Compile Include="Commands\CRUDPeClase\UpdateClassButton.cs" />
+    <Compile Include="Commands\CRUDPeDiriginti\CreateDiriginteButton.cs" />
+    <Compile Include="Commands\CRUDPeDiriginti\DeleteDirginteButton.cs" />
+    <Compile Include="Commands\CRUDPeDiriginti\ReadDiriginteButton.cs" />
+    <Compile Include="Commands\CRUDPeDiriginti\UpdateDiriginteButton.cs" />
+    <Compile Include="Commands\CRUDPeDiriginti\UpdateDirigintePassButton.cs" />
+    <Compile Include="Commands\CRUDPeMaterie\CreateSubjectButton.cs" />
+    <Compile Include="Commands\CRUDPeMaterie\DeleteSubjectButton.cs" />
+    <Compile Include="Commands\CRUDPeMaterie\ReadSubjectButton.cs" />
+    <Compile Include="Commands\CRUDPeMaterie\UpdateSubjectButton.cs" />
+    <Compile Include="Commands\CRUDPeProfesor\CreateProfessorButton.cs" />
+    <Compile Include="Commands\CRUDPeProfesor\DeleteProfesorButton.cs" />
+    <Compile Include="Commands\CRUDPeProfesor\ReadProfesorButton.cs" />
+    <Compile Include="Commands\CRUDPeProfesor\UpdateProfessorButton.cs" />
+    <Compile Include="Commands\CRUDPeSpecializari\CreateSpecializationButton.cs" />
+    <Compile Include="Commands\CRUDPeSpecializari\DeleteSpecializationButton.cs" />
+    <Compile Include="Commands\CRUDPeSpecializari\ReadSpecializationButton.cs" />
+    <Compile Include="Commands\CRUDPeSpecializari\UpdateSpecializationButton.cs" />
+    <Compile Include="Commands\CRUDPeStudenti\CreateStudentButton.cs" />
+    <Compile Include="Commands\CRUDPeStudenti\DeleteStudentButton.cs" />
+    <Compile Include="Commands\CRUDPeStudenti\ReadStudentsButton.cs" />
+    <Compile Include="Commands\CRUDPeStudenti\UpdateStudentButton.cs" />
+    <Compile Include="Commands\Grades\AddGradesButton.cs" />
+    <Compile Include="Commands\Grades\ViewGradesButton.cs" />
+    <Compile Include="Commands\SelectAdmin.cs" />
+    <Compile Include="Commands\SelectDiriginte.cs" />
+    <Compile Include="Commands\SelectProfesor.cs" />
+    <Compile Include="Commands\SelectStudent.cs" />
+    <Compile Include="Converter\AdminConvert.cs" />
+    <Compile Include="Database\Absente.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Admin.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AdminBL.cs" />
+    <Compile Include="Database\BL\DiriginteBL.cs" />
+    <Compile Include="Database\BL\ElevBL.cs" />
+    <Compile Include="Database\BL\ProfesorBL.cs" />
+    <Compile Include="Database\Clasa.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Dependency.cs" />
+    <Compile Include="Database\Diriginte.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Entities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Entities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Entities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Materie.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\MateriiProfesori.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\MateriiSpecializari.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\NOTA.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Profesor.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Specializare.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Student.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FirstWindowAndLogInWindowVM\LoginAdmin.cs" />
+    <Compile Include="MvpDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MvpDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModelBase\BaseVM.cs" />
+    <Compile Include="FirstWindowAndLogInWindowVM\LogInDiriginte.cs" />
+    <Compile Include="FirstWindowAndLogInWindowVM\LogInProfesor.cs" />
+    <Compile Include="FirstWindowAndLogInWindowVM\LogInStudent.cs" />
+    <Compile Include="ViewModels\AdminView.cs" />
+    <Compile Include="ViewModels\CreateView.cs" />
+    <Compile Include="ViewModels\CRUDClasa\DeleteClassView.cs" />
+    <Compile Include="ViewModels\CRUDClasa\ReadClassView.cs" />
+    <Compile Include="ViewModels\CRUDClasa\UpdateClassView.cs" />
+    <Compile Include="ViewModels\CRUDDiriginte\CreateDiriginteView.cs" />
+    <Compile Include="ViewModels\CRUDDiriginte\DeleteDiriginteView.cs" />
+    <Compile Include="ViewModels\CRUDDiriginte\ReadDiriginteView.cs" />
+    <Compile Include="ViewModels\CRUDDiriginte\UpdateDiriginteParolaView.cs" />
+    <Compile Include="ViewModels\CRUDDiriginte\UpdateDiriginteView.cs" />
+    <Compile Include="ViewModels\CRUDMaterie\CreateMaterieView.cs" />
+    <Compile Include="ViewModels\CRUDMaterie\DeleteMaterieView.cs" />
+    <Compile Include="ViewModels\CRUDMaterie\ReadMaterieView.cs" />
+    <Compile Include="ViewModels\CRUDMaterie\UpdateMaterieView.cs" />
+    <Compile Include="ViewModels\CRUDProfesor\CreateProfesorView.cs" />
+    <Compile Include="ViewModels\CRUDProfesor\DeleteProfesorView.cs" />
+    <Compile Include="ViewModels\CRUDProfesor\ReadProfesorView.cs" />
+    <Compile Include="ViewModels\CRUDProfesor\UpdateProfesorView.cs" />
+    <Compile Include="ViewModels\CRUDStudent\CreateStudentView.cs" />
+    <Compile Include="ViewModels\CRUDStudent\DeleteStudentView.cs" />
+    <Compile Include="ViewModels\CRUDStudent\ReadStudentView.cs" />
+    <Compile Include="ViewModels\CRUDStudent\UpdateStudentView.cs" />
+    <Compile Include="ViewModels\CRUD\CreateSpecView.cs" />
+    <Compile Include="ViewModels\CRUD\DeleteSpecView.cs" />
+    <Compile Include="ViewModels\CRUD\ReadSpecView.cs" />
+    <Compile Include="ViewModels\CRUD\UpdateSpecView.cs" />
+    <Compile Include="ViewModels\DirigintePOV.cs" />
+    <Compile Include="ViewModels\ProfesorPOV.cs" />
+    <Compile Include="ViewModels\ProfessorActionView\AddAbsencesView.cs" />
+    <Compile Include="ViewModels\ProfessorActionView\AddGradesView.cs" />
+    <Compile Include="ViewModels\ProfessorActionView\ClearAbsencesView.cs" />
+    <Compile Include="ViewModels\ProfessorActionView\ClearGradeView.cs" />
+    <Compile Include="ViewModels\ProfessorActionView\ViewGrades.cs" />
+    <Compile Include="ViewModels\StudentPOV.cs" />
+    <Compile Include="Views\CRUDClasaPage\DeleteClass.xaml.cs">
+      <DependentUpon>DeleteClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDClasaPage\ReadClass.xaml.cs">
+      <DependentUpon>ReadClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDClasaPage\UpdateClass.xaml.cs">
+      <DependentUpon>UpdateClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDDirigintePage\CreateDiriginte.xaml.cs">
+      <DependentUpon>CreateDiriginte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDDirigintePage\DeleteDiriginte.xaml.cs">
+      <DependentUpon>DeleteDiriginte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDDirigintePage\ReadDiriginte.xaml.cs">
+      <DependentUpon>ReadDiriginte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDDirigintePage\UpdateDiriginte.xaml.cs">
+      <DependentUpon>UpdateDiriginte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDDirigintePage\UpdateDiriginteParolaSiMaterie.xaml.cs">
+      <DependentUpon>UpdateDiriginteParolaSiMaterie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDMateriePage\CreateSubject.xaml.cs">
+      <DependentUpon>CreateSubject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDMateriePage\DeleteSubject.xaml.cs">
+      <DependentUpon>DeleteSubject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDMateriePage\ReadSubject.xaml.cs">
+      <DependentUpon>ReadSubject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDMateriePage\UpdateSubject.xaml.cs">
+      <DependentUpon>UpdateSubject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDProfesorPage\CreateProfessor.xaml.cs">
+      <DependentUpon>CreateProfessor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDProfesorPage\DeleteProfesor.xaml.cs">
+      <DependentUpon>DeleteProfesor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDProfesorPage\ReadProfesor.xaml.cs">
+      <DependentUpon>ReadProfesor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDProfesorPage\UpdateProfesor.xaml.cs">
+      <DependentUpon>UpdateProfesor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDStudentPage\CreateStudent.xaml.cs">
+      <DependentUpon>CreateStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDStudentPage\DeleteStudent.xaml.cs">
+      <DependentUpon>DeleteStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDStudentPage\ReadStudent.xaml.cs">
+      <DependentUpon>ReadStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUDStudentPage\UpdateStudent.xaml.cs">
+      <DependentUpon>UpdateStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUD\CreateClasa.xaml.cs">
+      <DependentUpon>CreateClasa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUD\CreateSpecialization.xaml.cs">
+      <DependentUpon>CreateSpecialization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUD\DeleteSpecialization.xaml.cs">
+      <DependentUpon>DeleteSpecialization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUD\UpdateSpecialization.xaml.cs">
+      <DependentUpon>UpdateSpecialization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRUD\ViewSpecialization.xaml.cs">
+      <DependentUpon>ViewSpecialization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogInAdmin.xaml.cs">
+      <DependentUpon>LogInAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogInDiriginte.xaml.cs">
+      <DependentUpon>LogInDiriginte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogInProfesor.xaml.cs">
+      <DependentUpon>LogInProfesor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogInStudent.xaml.cs">
+      <DependentUpon>LogInStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfesorAction\AddAbsences.xaml.cs">
+      <DependentUpon>AddAbsences.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfesorAction\AddGrade.xaml.cs">
+      <DependentUpon>AddGrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfesorAction\ClearAbsences.xaml.cs">
+      <DependentUpon>ClearAbsences.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfesorAction\ClearGrade.xaml.cs">
+      <DependentUpon>ClearGrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfesorAction\ViewCatalog.xaml.cs">
+      <DependentUpon>ViewCatalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersPage\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersPage\DirigintePage.xaml.cs">
+      <DependentUpon>DirigintePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersPage\ProfesorPage.xaml.cs">
+      <DependentUpon>ProfesorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersPage\StudentPage.xaml.cs">
+      <DependentUpon>StudentPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Commands\RelayCommands.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\CRUDClasaPage\DeleteClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDClasaPage\ReadClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDClasaPage\UpdateClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDDirigintePage\CreateDiriginte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDDirigintePage\DeleteDiriginte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDDirigintePage\ReadDiriginte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDDirigintePage\UpdateDiriginte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDDirigintePage\UpdateDiriginteParolaSiMaterie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDMateriePage\CreateSubject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDMateriePage\DeleteSubject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDMateriePage\ReadSubject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDMateriePage\UpdateSubject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDProfesorPage\CreateProfessor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDProfesorPage\DeleteProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDProfesorPage\ReadProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDProfesorPage\UpdateProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDStudentPage\CreateStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDStudentPage\DeleteStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDStudentPage\ReadStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUDStudentPage\UpdateStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUD\CreateClasa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUD\CreateSpecialization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUD\DeleteSpecialization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUD\UpdateSpecialization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRUD\ViewSpecialization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LogInAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LogInDiriginte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LogInProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LogInStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfesorAction\AddAbsences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfesorAction\AddGrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfesorAction\ClearAbsences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfesorAction\ClearGrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfesorAction\ViewCatalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsersPage\AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsersPage\DirigintePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsersPage\ProfesorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsersPage\StudentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainWindowView\ButtonAction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Database\Entities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Entities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\Entities.edmx.diagram">
+      <DependentUpon>Entities.edmx</DependentUpon>
+    </None>
+    <None Include="MvpDataSet.xsc">
+      <DependentUpon>MvpDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MvpDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MvpDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MvpDataSet.xss">
+      <DependentUpon>MvpDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\admin.png" />
+    <Resource Include="Resources\diriginte.png" />
+    <Resource Include="Resources\profesor.png" />
+    <Resource Include="Resources\student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\Entities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Entities.edmx</DependentUpon>
+      <LastGenOutput>Entities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Entities.edmx</DependentUpon>
+      <LastGenOutput>Entities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
